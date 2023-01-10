@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http
 @model List<ArticleViewModel>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Profile";
 }
 
 <link href="~/css/article-list.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
     @if (!string.IsNullOrEmpty(Context.Session.GetString("userId")))
     {
         <div style="float:right">
-            <a class="btn btn-outline-success" asp-controller="Article" asp-action="Create" asp-route-yonlen="/Home/Index">
+            <a class="btn btn-outline-success" asp-controller="Article" asp-action="Create" asp-route-yonlen="/Home/Profile/@Context.Session.GetString("username")">
                 <i class="fas fa-plus">&nbsp;&nbsp;Create</i>
                 </a>
         </div>
@@ -39,9 +39,7 @@
                 <div class="col col-9">
                     <div class="row">
                         <div class="col col-4">
-                              <a asp-controller="Home" asp-action="Profile" asp-route-username="@article.AuthorName" class="black action">
                             <div class="row"><b>Author: </b> &nbsp; @article.AuthorName</div>
-                            </a>
                             <div class="row">
                                 <img src="~/images/@article.ArticlePicture" alt="Alternate Text" style="object-fit:contain; max-width:200px; max-height:150px;">
                             </div>

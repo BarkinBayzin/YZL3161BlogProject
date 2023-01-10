@@ -36,7 +36,7 @@ namespace YZL3161BlogProject.Controllers
                     HttpContext.Session.SetString("username", user.Username);
 
                     if (string.IsNullOrEmpty(yonlen)) return RedirectToAction("Index", "Home");
-                    else Redirect(yonlen);
+                    else return Redirect(yonlen);
                 }
                 else ModelState.AddModelError("", "Can't find this user... :/");
             }

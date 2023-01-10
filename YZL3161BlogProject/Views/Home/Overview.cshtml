@@ -1,0 +1,35 @@
+﻿@model OverviewViewModel
+@{
+    ViewData["Title"] = "Overview";
+}
+
+<style>
+    pre {
+        padding: 0 50px;
+        white-space: pre-wrap; /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+        overflow:hidden
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col">
+            <div class="card">
+                <h2>@Model.Title</h2>
+                <h5>@Model.Author, @Model.GetCreatedTime()</h5>
+                <div>
+                    <img src="~/images/@Model.ArticlePicture" alt="Resim" style="max-height:750px; max-width:750px" />
+                </div>
+                <br />
+                <div>
+                    <pre>@Model.Content</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
